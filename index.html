@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="card border border-4">
+      <div class="card border border-2 mt-3">
         <div class="card-body">
           <h1>London</h1>
           <ul>
@@ -23,12 +23,13 @@
             <li>Clear</li>
           </ul>
           <div class="row">
-            <div class="col-6">
+            <div class="col-6 ps-0 clearfix">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                 alt=""
-              />
-              20°C | °F
+                class="float-start"
+              /><span id="temperature" class="float-start">20</span>°C |
+              <a href="#">°F</a>
             </div>
             <div class="col-6">
               <ul>
