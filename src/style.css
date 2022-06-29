@@ -17,10 +17,14 @@ li {
 .card {
   max-width: 600px;
 }
+.units {
+  position: relative;
+  top: 12px;
+}
 #temperature {
   font-size: 48px;
   font-weight: 400;
-  line-height: 60px;
+  line-height: 90px;
   margin-left: 5px;
 }
 #description::first-letter {
