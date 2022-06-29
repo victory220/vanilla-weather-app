@@ -11,16 +11,17 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
     <div class="container">
       <div class="card border border-2 mt-3">
         <div class="card-body">
-          <h1>London</h1>
+          <h1 id="city">London</h1>
           <ul>
-            <li>Sunday 12:00</li>
-            <li>Clear</li>
+            <li>Last updated: <span id="date">Sunday 12:00</span></li>
+            <li id="description">Clear</li>
           </ul>
           <div class="row">
             <div class="col-6 ps-0 clearfix">
@@ -33,9 +34,9 @@
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation: 10%</li>
-                <li>Humidity: 50%</li>
-                <li>Wind: 2 km/h</li>
+                <!-- <li>Precipitation: <span id="precipitation">10</span>%</li> -->
+                <li>Humidity: <span id="humidity">50</span>%</li>
+                <li>Wind: <span id="wind">2</span> m/s</li>
               </ul>
             </div>
           </div>

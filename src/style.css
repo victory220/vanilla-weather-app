@@ -23,3 +23,6 @@ li {
   line-height: 60px;
   margin-left: 5px;
 }
+#description::first-letter {
+  text-transform: capitalize;
+}
