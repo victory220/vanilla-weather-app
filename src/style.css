@@ -50,3 +50,13 @@ footer {
   height: 80px;
   object-fit: none;
 }
+.forecast {
+  text-align: center;
+  margin-top: 20px;
+}
+.temperature-max {
+  opacity: 0.8;
+}
+.temperature-min {
+  opacity: 0.6;
+}
