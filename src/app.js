@@ -23,8 +23,14 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "69a8934df3c12df0dc3ffddf1977ee44";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
-  console.log(response);
+  // console.log(response);
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
   let descriptionElement = document.querySelector("#description");
@@ -44,6 +50,7 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -72,7 +79,8 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -80,14 +88,14 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `
-<div class="col-2">
-  <div class="forecast-date">${day}</div>
-  <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="42" />
-  <div class="forecast-temperatures">
-    <span class="temperature-max"> 19° </span>
-    <span class="temperature-min"> 12° </span>
-  </div>
-</div>
+      <div class="col-2">
+        <div class="forecast-date">${day}</div>
+        <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="42" />
+        <div class="forecast-temperatures">
+          <span class="temperature-max"> 19° </span>
+          <span class="temperature-min"> 12° </span>
+        </div>
+      </div>
   `;
   });
   forecastHTML = forecastHTML + `</div>`;
@@ -104,4 +112,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("London");
-displayForecast();
